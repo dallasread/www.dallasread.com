@@ -2,4 +2,3 @@ name: DallasRead.com
 markdown: redcarpet
 pygments: true
 permalink: /:year/:month/:day/:title
-baseurl: /DallasRead.com
