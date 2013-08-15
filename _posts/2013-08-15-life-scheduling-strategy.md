@@ -21,15 +21,15 @@ I could make a thousand comparisons about the self-employed lifestyle versus the
       <td>Wash the car</td>
     </tr>
     <tr>
-      <td style="text-align: right; font-weight: bold; ">12:30</td>
+      <td style="text-align: right; font-weight: bold; ">1:30</td>
       <td>Paint the house</td>
     </tr>
     <tr>
-      <td style="text-align: right; font-weight: bold; ">1:00</td>
+      <td style="text-align: right; font-weight: bold; ">2:00</td>
       <td>Clean the kitchen</td>
     </tr>
     <tr>
-      <td style="text-align: right; font-weight: bold; ">12:30</td>
+      <td style="text-align: right; font-weight: bold; ">3:30</td>
       <td>Take a walk</td>
     </tr>
   </tbody>
