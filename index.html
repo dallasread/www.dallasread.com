@@ -3,9 +3,16 @@ layout: default
 title: DallasRead.com
 ---
 
-<div id="home">
-  <h1>DallasRead.com</h1>
-  
-  {% include suggested.html %}
-  
+{% assign post = site.posts.first %}
+{% assign content = post.content %}
+
+<h2>{{ post.title }}</h2>
+<p class="meta">{{ post.date | date_to_long_string }} &nbsp; | &nbsp; {{ post.content | number_of_words }} words</p>
+
+<hr />
+
+<div class="post">
+  {{ content }}
 </div>
+
+{% include suggested.html %}
