@@ -126,6 +126,7 @@ i, em {
     float: none;
     text-align: center;
     font-size: 14px;
+    position: absolute;
   }
   
   #nav a {
