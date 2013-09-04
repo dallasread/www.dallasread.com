@@ -116,6 +116,10 @@ i, em {
 }
 
 @media all and (max-width: 699px) {
+  #header {
+    position: absolute;
+  }
+  
   #header h1 {
     float: none;
     text-align: center;
@@ -126,7 +130,6 @@ i, em {
     float: none;
     text-align: center;
     font-size: 14px;
-    position: absolute;
   }
   
   #nav a {
