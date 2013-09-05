@@ -1,6 +1,6 @@
 ---
 layout: default
-title: DallasRead.com
+title: Dallas Read
 ---
 
 {% assign page = site.posts.first %}
@@ -9,8 +9,7 @@ title: DallasRead.com
 <h2>{{ page.title }}</h2>
 <p class="meta">
   {{ page.date | date_to_long_string }} &nbsp; | &nbsp; 
-  {{ page.content | reading_time | pluralize: "minute" }} &nbsp; | &nbsp; 
-  {{ page.content | number_of_words | pluralize: "word" }}
+  {{ page.content | number_of_words }} words
 </p>
 
 <hr />
