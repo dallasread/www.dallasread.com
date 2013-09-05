@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      The Art of Finding and Catching Clients
-date:       2013-08-22 06:00:00
+date:       2013-08-21 06:00:00
 categories: chapter
 ---
 

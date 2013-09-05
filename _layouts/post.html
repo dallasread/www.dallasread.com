@@ -2,7 +2,11 @@
 layout: default
 ---
 <h2>{{ page.title }}</h2>
-<p class="meta">{{ page.date | date_to_long_string }} &nbsp; | &nbsp; {{ page.content | number_of_words }} words</p>
+<p class="meta">
+  {{ page.date | date_to_long_string }} &nbsp; | &nbsp; 
+  {{ page.content | reading_time | pluralize: "minute" }} &nbsp; | &nbsp; 
+  {{ page.content | number_of_words | pluralize: "word" }}
+</p>
 
 <hr />
 

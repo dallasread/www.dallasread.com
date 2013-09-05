@@ -3,3 +3,4 @@ url: http://dallasread.com
 markdown: redcarpet
 pygments: true
 permalink: /:year/:month/:title
+future: false

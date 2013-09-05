@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Playing Eyes-Closed"
-date:   2013-07-24 06:00:00
+date:   2013-04-24 06:00:00
 categories: motivation, work
 ---
 
