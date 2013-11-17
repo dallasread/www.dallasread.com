@@ -2,7 +2,7 @@
 layout: post
 title:  "Playing Eyes-Closed"
 date:   2013-04-24 06:00:00
-categories: motivation, work
+categories: motivation work
 ---
 
 ### Eyes-Closed Is Easy (I could do that…)

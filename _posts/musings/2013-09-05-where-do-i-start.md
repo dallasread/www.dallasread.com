@@ -2,7 +2,7 @@
 layout:     post
 title:      Where do I start?
 date:       2013-09-05 06:00:00
-categories: consulting, solutions
+categories: consulting solutions
 ---
 
 Yesterday, as I was consulting for [Email Opened](http://www.emailopened.com), we were discussing a new [top-secret] feature. We knew it would be useful, but it would be a huge project. Where do you start?

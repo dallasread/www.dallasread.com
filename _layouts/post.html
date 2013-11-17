@@ -4,7 +4,8 @@ layout: default
 <h2>{{ page.title }}</h2>
 <p class="meta">
   {{ page.date | date_to_long_string }} &nbsp; | &nbsp; 
-  {{ page.content | number_of_words }} words
+  {% assign word_count = page.content | number_of_words %}
+  {{ word_count / 12 }} words
 </p>
 
 <hr />
