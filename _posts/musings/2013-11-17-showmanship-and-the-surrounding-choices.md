@@ -19,4 +19,4 @@ We're in the era of showmanship and choices. When wooing an audience, you must e
 - Confirm their suspicions
 - Help them throw rock at their enemies
 
-These five actions are a part of Blair Warren's One-Sentence Persuasion PDF ([Download Free with No Strings Attached](/assets/free/OneSentencePersuasion.pdf)).
+These five actions are a part of Blair Warren's One-Sentence Persuasion PDF ([View](/assets/free/OneSentencePersuasion.pdf)).
