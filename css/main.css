@@ -145,7 +145,7 @@ p.meta {
   box-sizing: border-box;
 }
 
-p, ul, ol, h4 {
+p, ul, ol, h4, blockquote {
   font-family: Georgia, Serif;
   margin-bottom: 15px;
   font-size: 18px;
