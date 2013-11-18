@@ -1,8 +1,8 @@
 ---
 layout: post
 title:  One Tip To Instantly Create Better Marketing Materials
-date:   2013-04-24 06:00:00
-categories: motivation work
+date:   2013-11-18 06:00:00
+categories: marketing tips
 ---
 
 I've seen _every_ marketing medium fail: million-dollar TV commercials, newspaper ads, websites, and billboards. Each failure has 1 thing in common:
