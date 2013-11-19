@@ -7,7 +7,7 @@ categories: marketing tips
 
 I've seen _every_ marketing medium fail: million-dollar TV commercials, newspaper ads, websites, and billboards. Each failure has 1 thing in common:
 
-They don't offer a clear "Next Thing To Do."
+#### They don't offer a clear "Next Thing To Do."
 
 ### Clever vs. Clear
 
