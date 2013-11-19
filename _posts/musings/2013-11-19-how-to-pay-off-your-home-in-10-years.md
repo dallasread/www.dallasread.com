@@ -15,14 +15,14 @@ Yesterday, while I was banking online, PC Financial offered [this home-buying ad
 
 Is it worth it?
 
-#### A $1,000 lump sum payment - no thanks.
+### A $1,000 lump sum payment - no thanks.
 It's a psychological drain - setting aside money all year to make one double-payment. I'd rather have an extra $50 tacked on to my regular payment. Besides, it only takes 1 year off your mortgage...
 
-#### Regularly pay an extra 20% - meh.
+### Regularly pay an extra 20% - meh.
 Paying an extra $2,600 per year could be a serious difference in lifestyle if you're living close to the edge. To knock 5 years in this fashion is probably going to mean sacrifice.
 
-#### Accelerated payments - absolutely.
+### Accelerated payments - absolutely.
 You won't even feel a thing and it'll give you $1,000 in extra equity per year. You don't have to sacrifice much - maybe a few nights out, a small vacation, or a daily Starbucks. This is an easy way to knock 3 years off any mortgage.
 
-#### What would happen if, instead, you just doubled your payment?
+### What would happen if, instead, you just doubled your payment?
 The same mortgage would be paid off in less than 10 years. Why don't you just do that?
