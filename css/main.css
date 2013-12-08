@@ -262,6 +262,10 @@ blockquote {
   color: #999;
 }
 
+img {
+	max-width: 100%;
+}
+
 @media all and (max-width: 699px) {
   #header h1 {
     font-size: 36px;
@@ -301,7 +305,7 @@ blockquote {
     margin-bottom: 60px;
   }
   
-  h4, p, ul {
+  h4, p, ul, ol {
     font-size: 15px;
     line-height: 25px;
   }
