@@ -1,0 +1,65 @@
+==================================================================
+https://keybase.io/dallasread
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://dallasread.com
+  * I am dallasread (https://keybase.io/dallasread) on keybase.
+  * I have a public key with fingerprint 7D03 D489 861B 4BF8 9067  6691 76CD B330 8DD2 7D45
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "7d03d489861b4bf89067669176cdb3308dd27d45",
+            "host": "keybase.io",
+            "key_id": "76cdb3308dd27d45",
+            "uid": "22eb07ae1280d5011d38129d04f4dd00",
+            "username": "dallasread"
+        },
+        "service": {
+            "hostname": "dallasread.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1400892605,
+    "expire_in": 157680000,
+    "prev": "269fae5cf66ba575828a588db5bbabdf852a29c3677b9a1b0015b0065b49781b",
+    "seqno": 4,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v0.1.17
+Comment: https://keybase.io/crypto
+
+yMHwAnicZZFfTBRXFMaXRSBiStU0wItRJmiNLnBndv5usG2aGgxBC2oNKLq5d+7d
+Zegys8zOLtANSwsPVPShL0iaNikKTSoQ8MVSpCSI1Y2YEBMTE41CXJQEqQHTdFvE
+bLhD9Il5uDdzzu/7vnty/vog3ZGdVpl3uilR9To/7d7kv2HHiba/J6IMMnAL44ky
+X5ONy6fpfmIGTU23GA8jYeDGvKzIIot45JMVIEqiqLCSqGLkdgMZY07CvMC4mDoj
+ZCuoDYIhUqwZtEZ/vBq2fTbz4Y0GxxEEJEhYTgZYACyL3TLLKRjwPh5jAGwwREwd
+NhBKYxgIwJBJIGZaXQytRzSV1qMb4ZuYYtVooPqgaViGagRor86ygh5barUEbbaJ
+IO87Fy/SdExnp4IIMUOaoTMelpKqpdm2LA+ArHAiEFwMaQ5qJvFqNiFIogzoZ8eQ
+iD2QqPggEVSfKCIoSILMyVCQZYwEhCDCPlngIKeoblGSkAJZBAAr0EMUEK9IMoto
+fog06gbj4ekzoZ9ahjS/Dq2wSZjWqcnaLY60bEdmhtPeniN76/b3O/3qUlZKPtte
+2tG/J7Ok59usi7HgqKt06e7b7gcjhf/DQe1ZX0544Mo3sfrc5SI8H69Opeq80e7i
+C8xj/2BEr/m9LJmo+K3luoW61JkDQxO5NyoWk/EnvTtuP3pYmFpNfjL8h9fRC2qs
+tbGjJaemPPmtLwveSDt/mmubbx5Z0fNWrfTyNWax7z9Xo3Nw4ak7ORQrX6m89nHG
+XOKzpS+OvTiCvuSc31Vt8+zOiZ87Exje+7OFb7b9ON15p2t24f7lP+s7487DPfPD
+Hx5/1Vu97/Pa9u/jV3fd2n8IDkzF/JnjvxT1jxbUzOLxjufpCe6H/s7Irxkfmcuf
+1p8smznYPtYz/c+icn4d9fYZ2A==
+=O05X
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/dallasread
+
+==================================================================
