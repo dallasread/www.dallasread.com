@@ -1,7 +1,7 @@
 ---
 layout:     post
 title:      Finding Customers
-date:       2014-11-23 06:00:00
+date:       2013-11-23 06:00:00
 categories: book, quotation
 ---
 

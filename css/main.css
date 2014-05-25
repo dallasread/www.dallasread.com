@@ -152,6 +152,16 @@ p, ul, ol, h4, blockquote {
   line-height: 32px;
 }
 
+ul.normal {
+	list-style: disc;
+	margin-left: 25px;
+}
+
+ol.normal {
+	list-style: decimal;
+	margin-left: 25px;
+}
+
 .post ul {
   margin-left: 40px;
   list-style: disc;
@@ -254,6 +264,7 @@ hr {
   border-radius: 50px;
   float: left;
   margin-right: 40px;
+	margin-bottom: 50px;
 }
 
 blockquote {

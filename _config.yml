@@ -1,6 +1,5 @@
 name: DallasRead.com
 url: http://dallasread.com
-markdown: redcarpet
-pygments: true
+markdown: kramdown
 permalink: /:year/:month/:title
 future: false
