@@ -193,7 +193,7 @@ You can see "transport=polling" in the next URL that loads after a 25 second del
   I couldn't honestly recommend a re-building of the site <em>if you just want to keep up with the status quo</em>. But if you're really looking at adding new features down the road, I would recommend a big cleanup or rebuilding (on any technology stack). I personally feel the code base is too rough around the edges to add features - it would feel like a big hack. :D
 
 <strong>Conclusion</strong>
-  I'm confident that the slow loading is caused by the web socket server not being available, which was the main mission. I actually think the "Re-connecting..." message is caused because the transport mode is falling back to the slower "polling".
+  I'm confident that the slow loading is caused by the web socket server not being available, which was the main mission. I actually think the "Re-connecting..." message is connected. I think it's caused from the "web socket" transport mode falling back to the slower method of "polling".
 	
   <span class="suggestion">As one last suggestion, I would recommend installing New Relic on the server (just a free plan).</span> They give really detailed reporting on server load and db/server/client slow-downs.
 
