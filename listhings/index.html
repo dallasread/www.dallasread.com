@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Listhings.com Code Audit</title>
+    <meta name="viewport" content="width=device-width">
+    <style type="text/css">
+      html, body, div, span, applet, object, iframe,
+      h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+      a, abbr, acronym, address, big, cite, code,
+      del, dfn, em, img, ins, kbd, q, s, samp,
+      small, strike, strong, sub, sup, tt, var,
+      b, u, i, center,
+      dl, dt, dd, ol, ul, li,
+      fieldset, form, label, legend,
+      table, caption, tbody, tfoot, thead, tr, th, td,
+      article, aside, canvas, details, embed, 
+      figure, figcaption, footer, header, hgroup, 
+      menu, nav, output, ruby, section, summary,
+      time, mark, audio, video {
+      	margin: 0;
+      	padding: 0;
+      	border: 0;
+      	font-size: 100%;
+      	font: inherit;
+      	vertical-align: baseline;
+      }
+
+      article, aside, details, figcaption, figure, 
+      footer, header, hgroup, menu, nav, section {
+      	display: block;
+      }
+      
+      body {
+      	line-height: 1;
+      }
+      
+      ol, ul {
+      	list-style: none;
+      }
+      
+      blockquote, q {
+      	quotes: none;
+      }
+      
+      blockquote:before, blockquote:after,
+      q:before, q:after {
+      	content: '';
+      	content: none;
+      }
+      
+      table {
+      	border-collapse: collapse;
+      	border-spacing: 0;
+      }
+      
+      img {
+        max-width: 100%;
+        border: 1px solid #ccc;
+      }
+    
+      body {
+        color: #111;
+        margin: 0;
+        padding: 10px;
+      }
+      
+      pre {
+        font-family: "Courier New", courier, monospace;
+        white-space: pre-wrap;
+        white-space: -moz-pre-wrap;
+        white-space: -pre-wrap;
+        white-space: -o-pre-wrap;
+        word-wrap: break-word;
+      }
+      
+      .container {
+        max-width: 640px;
+        width: 100%;
+      }
+      
+      .align_right {
+        text-align: right; 
+      }
+      
+      #signature {
+        width: 170px;
+        border: 0;
+      }
+      
+      b, strong {
+        font-weight: bold;
+      }
+			
+			i, em {
+				font-style: oblique;
+			}
+			
+			.suggestion {
+				color: green;
+			}
+      
+      @media (max-width: 680px) {
+        body { 
+          font-size: 13px;
+          line-height: 19px;
+        }
+      }
+      
+      @media (min-width: 681px) {
+        body {
+          font-size: 15px;
+          line-height: 23px;
+        }
+
+        .container {
+          margin: 30px auto 100px auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <pre><p class="align_right">Listhings.com Code Audit
+Prepared for Sam Bond
+Prepared by Dallas Read
+
+September 23, 2014</p>
+
+  I've analyzed the code in the Github repository for Listhings.com for efficiency, scalability, and a way to solve our nagging "loading" issue. One thing is for sure, this really is a great, versatile project. The code base does show some signs of age, but it is a working code base (more or less). There are a couple out-dated libraries that could be replaced by more robust solutions, but, if it works...
+
+<strong>A Side-Node (Note)</strong>
+  Day-to-day, I work on Ruby on Rails. The big difference I've noticed with Node.js is there's very little file organization structure. With a framework like Rails, its file structure is extremely organized. While parts of this project are, the 3792 line <a href="https://github.com/Talk/Listhings/blob/master/api/index.js" target="_blank">index.js</a> feels like a bit of a catchall. I can run a complex Rails project with no more than a couple hundred lines in a file, which makes for a more productive time in the code. Another thing I noticed was how many convenient functions that Ruby includes, but JS requires you to write your own code.
+	
+  Finally, you'll notice that all my <span class="suggestion">suggestions are in green</span>.
+
+<strong>Tests</strong>
+  One of the few sore spots of this project is that there are no tests, automated or otherwise. Tests are essential to quality software writing. Usually, a test file can be run that will run your code to make sure everything works - <em>before you push to production</em>. I'm sure you've seen wack-a-mole bug squashing - tests are the best (and only) way to avoid that.
+	
+<strong>The Client-Side Code</strong>
+  The client side is the code that your browser would run if you visited Listhings.com - the front end. All in all, there are no real concerns here. 
+
+- <strong>CSS</strong>: Nothing to say here!
+
+- <strong>Images</strong>: Compress for faster loading or replaced with CSS
+
+- <strong>Javascript</strong>: iPad-related event libraries could be updated
+
+- <strong>HTTPS</strong>: With doctors and teachers as the main user-base, <span class="suggestion">it would be a good idea to install an SSL certificate for an added layer of security.</span>
+
+- <strong>Build Tools</strong>: Compressing CSS/JS with a PHP script is very... quaint. :D Nowadays, a build tool like GruntJS would be used. A little old-school, but, once again, it works!
+
+- <strong>Sign In Page</strong>: Always loads fast because your computer doesn't have to connect to the socket server. This was a nice thing to noticed, cause it showed me the issue was with...
+
+<strong>The Server-Side Code</strong>
+  The server code is everything that the app visitor can't see - the back end. This is where I originally suspected our problem would lie. Like an iceberg, this is the hidden 90% and therefore dangerous parts of the code.
+	
+- <strong><a href="https://github.com/Talk/Listhings/blob/master/api/helpers/xhrsockets.js#L5" target="_blank">api/helpers/xhrsockets.js:5</a></strong>: It reads, "need to be wary about memory leaks from these objects." Just a slightly suspicious piece of code. :D <a href="http://mmonit.com/monit/" target="_blank">Monit</a> is a program that checks to make sure that Node.js doesn't run out of memory. If it does, Monit will restart the Node.js server. <span class="suggestion">It appears as though there is a monit configuration file, but it could use a little fine-tuning to ensure that it will reload itself when memory gets limited.</span>
+
+- <strong><a href="https://github.com/Talk/Listhings/blob/master/api/index.js#L845-L864" target="_blank">api/index.js:845-864</a></strong>: These nested IF statements worry me, but they're followed by a comment that states, "listhings specific stuff below." This makes me think the code above was copied from somewhere else. Regardless, re-building Listhings or integrating it with <a href="https://www.firebase.com" target="_blank">Firebase</a> or <a href="https://pusher.com" target="_blank">Pusher</a> would eliminate huge chunks of code (the upper half of the file), leaving less to maintain. More on websockets later.
+	
+- <strong><a href="https://github.com/Talk/Listhings/blob/master/api/index.js#L725-L747" target="_blank">api/index.js:725-747</a></strong>: This seemed a little bizarre. Garbage collection is a good thing, it frees up memory (absolutely perfect code wouldn't need any garbage collection). However, running <em>anything</em> every 5 seconds seems a little too frequent for comfort and uses precious resources. <span class="suggestion">I would reduce the frequency to every 30 seconds (30000).</span>
+
+- <strong>Routes</strong>: All of the routes (urls) of the application seem to work great (which means no broken links).
+
+- <strong><a href="https://github.com/Talk/Listhings/blob/master/static/js/shared/shared.js#L71-L93" target="_blank">static/js/shared/shared.js:71-93</a></strong>: All of these connections are created whenever a user visits a canvas. A proper real-time set up would have the user only connecting to one channel, listening to multiple events. More on websockets later.
+
+- <strong>Visible Password?</strong>: As I was inspecting the page requests, I saw something I shouldn't have. <span class="suggestion">It would be best to hide a couple of these fields from the client (eg. password, secretKey, cheddar_customer_id, maybe even ID):</span>
+
+<img src="imgs/1.png">
+Which brings us to: <strong>The Real Issue</strong>
+
+  If you're logged in to Listhings and visit <a href="http://listhings.com" target="_blank">listhings.com</a>, you'll be faced with a corkboard background for exactly 25 seconds. I discovered this while I was looking at the network waterfall in the Chrome Inspector (command + option + I in Chrome).
+	
+  It just so happens that there's something in the code that delays 25 seconds: engine.io. More specifically, falling back to web sockets. Wait... wha????
+	
+  Engine.io makes the real-time web work (where you can see what I'm doing on my canvas). It uses a state-of-the-art technology called web sockets to transfer the live data. If web sockets aren't available, then it will fall back to something called polling. This timeout is set to 25 seconds.
+	
+You can see "transport=websocket" in the first URL (the gray bar on the right means it never loaded, but keeps trying):
+	<a href="imgs/2.png" target="_blank"><img src="imgs/2.png"></a>
+You can see "transport=polling" in the next URL that loads after a 25 second delay:
+	<a href="imgs/3.png" target="_blank"><img src="imgs/3.png"></a>
+	
+  It looks like, at one time, the web socket server was working, but is not responding anymore. <span class="suggestion">So, we need to fix the web socket server OR tell engine.io not to use it.</span> By the way, I read somewhere today that sockets are something like 3000x more efficient/faster than polling.
+	
+  As far as I can tell, telling engine.io not to use websockets should be as simple as changing line 18 of <a href="https://github.com/Talk/Listhings/blob/master/api/index.js#L18" target="_blank">api/index.js</a> from "var socketIoTransports = ['polling','websocket'];" to "var socketIoTransports = ['polling'];" and re-deploying the newly compressed assets.
+	
+  Starting the websocket server may just be a quick email to Martin (the original developer?) asking him how to do so? It's probably a one-liner.
+
+<strong>An Aside</strong>
+  If this were my project, I would use <a href="https://pusher.com" target="_blank">Pusher</a> as the transport layer. Like engine.io (engine.io is basically Pusher on your own server), Pusher relies on web sockets, falling back to polling, then to flash, then other things. One thing I've learned is that more code means more chance of breaking. If I can hand off a chunk to another service, I happily pay the premium! :D
+
+<strong>Re-Creation</strong>
+  I couldn't honestly recommend a re-building of the site <em>if you just want to keep up with the status quo</em>. But if you're really looking at adding new features down the road, I would recommend a big cleanup or rebuilding (on any technology stack). I personally feel the code base is too rough around the edges to add features - it would feel like a big hack. :D
+
+<strong>Conclusion</strong>
+  I'm confident that the slow loading is caused by the web socket server not being available, which was the main mission. I actually think the "Re-connecting..." message is caused because the transport mode is falling back to the slower "polling".
+	
+  <span class="suggestion">As one last suggestion, I would recommend installing New Relic on the server (just a free plan).</span> They give really detailed reporting on server load and db/server/client slow-downs.
+
+Kind regards,
+
+<img src="/assets/images/signature.png" id="signature">
+
+Dallas Read
+dallasgood@gmail.com
+</pre>
+    </div>
+  </body>
+</html>
