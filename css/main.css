@@ -47,277 +47,32 @@ table {
 	border-spacing: 0;
 }
 
-
-/*
-  Archives
-*/
-
 body {
-  font-family: Helvetica Neue, Helvetica, Sans Serif;
-  color: #333;
-}
-
-h2 {
-  font-size: 40px;
-  line-height: 50px;
-  font-weight: bold;
-  text-align: center;
-  margin: 0 auto 40px;
-  width: 85%;
-  color: #000;
-}
-
-h3 {
-  font-size: 21px;
-  line-height: 30px;
-  font-weight: bold;
-  margin-bottom: 10px;
-  padding-top: 30px;
-  color: #111;
-}
-
-h4 {
-  font-style: oblique;
-}
-
-b, strong {
-  font-weight: bold;
-}
-
-i, em {
-  font-style: oblique;
-}
-
-a {
-  color: #338C3C;
-}
-
-#header {
-  top: 0;
-  left: 0;
-  right: 0;
-  position: fixed;
-  background: rgba(65, 160, 100, 0.95);
-  color: #fff;
-}
-
-#header .container {
-  max-width: 900px;
-  margin: 0 auto;
-}
-
-#header h1 {
-  font-weight: bold;
-  font-size: 24px;
-  float: left;
-}
-
-#header a {
-  color: #fff;
-  text-decoration: none;
-}
-
-#header a:hover {
-  color: #EDFEE0;
-}
-
-#nav {
-  float: right;
-  margin: 0;
-}
-
-#nav li {
-  display: inline;
-}
-
-p.meta {
-  text-align: center;
-  color: #aaa;
-  font-size: 13px;
-  margin-bottom: 30px;
+	margin: 100px 0 100px;
+	background: #255E21;
 }
 
 .container {
-  max-width: 580px;
-  width: 100%;
-  margin: 150px auto 110px auto;
-  padding: 15px;
-  box-sizing: border-box;
+	width: 100%;
+	max-width: 699px;
+	margin: 0 auto;
 }
 
-p, ul, ol, h4, blockquote {
-  font-family: Georgia, Serif;
-  margin-bottom: 15px;
-  font-size: 18px;
-  line-height: 32px;
+h1 {
+	font-family: Helvetica Neue, Helvetica, Arial, Sans Serif;
+	font-weight: bold;
+	font-size: 150px;
+	color: #41863E;
+	padding: 3px 20px;
 }
 
-ul.normal {
-	list-style: disc;
-	margin-left: 25px;
-}
-
-ol.normal {
-	list-style: decimal;
-	margin-left: 25px;
-}
-
-.post ul {
-  margin-left: 40px;
-  list-style: disc;
-}
-
-.post ol {
-  margin-left: 40px;
-  list-style: decimal;
-}
-
-.post li {
-  margin-bottom: 8px;
-}
-
-.post table {
-  font-family: Georgia, Serif;
-  margin: 20px auto;
-  font-size: 14px;
-  line-height: 24px;
-  max-width: 100%;
-  border-collapse: collapse;
-}
-
-.post table th {
-  background: #f7f7f7; /* Old browsers */
-  background: -moz-linear-gradient(top,  #f7f7f7 0%, #ededed 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7f7f7), color-stop(100%,#ededed)); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  #f7f7f7 0%,#ededed 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  #f7f7f7 0%,#ededed 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  #f7f7f7 0%,#ededed 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  #f7f7f7 0%,#ededed 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7f7f7', endColorstr='#ededed',GradientType=0 ); /* IE6-9 */
-  font-weight: bold;
-  text-align: center;
-}
-
-.post table td, .post table th {
-  border: 1px solid #ccc;
-  padding: 5px 20px;
-}
-
-#suggested_reading ul {
-  margin: 10px 0 10px 0;
-}
-
-#suggested_reading li {
-  color: #aaa;
-  font-size: 12px;
-  font-weight: normal;
-}
-
-#suggested_reading a {
-  font-weight: normal;
-  font-size: 16px;
-}
-
-#home {
-  margin-top: -50px;
-}
-
-.center {
-  text-align: center;
-}
-
-.clear {
-  clear: both;
-}
-
-hr {
-  background: #ccc;
-  border: 0;
-  height: 1px;
-  margin: 40px 0;
-}
-
-.byline {
-  margin-top: 100px;
-}
-
-.byline h3 {
-  display: inline-block;
-  margin-top: -25px;
-}
-
-.byline p {
-  font-size: 15px;
-  line-height: 21px;
-}
-
-.byline a[rel="author"] {
-  font-family: Helvetica Neue, Helvetica, Sans Serif;
-  font-weight: bold;
-  text-decoration: none;
-  color: #000;
-  display: block;
-  font-size: 18px;
-}
-
-.byline img {
-  border-radius: 50px;
-  float: left;
-  margin-right: 40px;
-	margin-bottom: 50px;
-}
-
-blockquote {
-  border-left: 5px solid #ddd;
-  padding-left: 15px;
-  color: #999;
-}
-
-img {
-	max-width: 100%;
+h1.win {
+	color: #fff;
 }
 
 @media all and (max-width: 699px) {
-  #header h1 {
-    font-size: 36px;
-    float: none;
-    text-align: center;
-  }
-  
-  h2 {
-    font-size: 32px;
-    line-height: 38px;
-  }
-  
-  h3 {
-    font-size: 18px;
-    line-height: 24px;
-  }
-  
-  #header {
-    position: absolute;
-  }
-  
-  #nav {
-    clear: both;
-    float: none;
-    text-align: center;
-    font-size: 14px;
-    margin-bottom: -10px;
-  }
-  
-  #nav a {
-    display: inline-block;
-    margin: 10px;
-  }
-  
-  .container {
-    margin-top: 130px;
-    margin-bottom: 60px;
-  }
-  
-  h4, p, ul, ol {
-    font-size: 15px;
-    line-height: 25px;
-  }
+	h1 {
+		font-size: 66px;
+		padding: 2px 10px;
+	}
 }
