@@ -231,7 +231,9 @@ title: Dream. Risk. Win. Repeat.
           const $email = document.querySelector('[data-email]')
           const email = atob($email.getAttribute('data-email'))
 
-          $email.setAttribute('href', 'mailto:' + email)
+          setTimeout(() => {
+            $email.setAttribute('href', 'mailto:' + email)
+          }, Math.random() * 4)
         </script>
       </h2>
       <!-- <p class="mt-4 leading-8 text-gray-600">
