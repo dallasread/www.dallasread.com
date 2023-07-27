@@ -1,5 +1,3 @@
 name: DallasRead.com
-url: http://dallasread.com
 markdown: kramdown
 permalink: /:year/:month/:title
-future: false
