@@ -136,13 +136,12 @@ description: Let's talk product development, technical decisions, and shipping �
 <hr>
 
 <div class="my-10 lg:my-20">
-  <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-    🔨 I'm working on a few things.
-  </h2>
-
-  <p class="mt-6 lg:text-2xl leading-7 lg:leading-10 text-gray-600">
-    I've worked on project and project, but I've finally settled in to a few where I can make a big difference.
-  </p>
+  {%
+    include section-header.html
+    type="h2"
+    title="🔨 I'm working on a few things."
+    description="I've worked on project and project, but I've finally settled in to a few where I can make a big difference."
+  %}
 
   <div class="lg:mt-10 lg:mt-20 mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:grid-cols-2">
     <div class="mx-auto w-full max-w-2xl lg:border-t lg:border-gray-900/10 pt-12 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
@@ -236,14 +235,14 @@ description: Let's talk product development, technical decisions, and shipping �
 
 <hr>
 
-<div class="my-10 lg:my-20">
+<div class="mt-10 lg:mt-20">
   <div class="mt-10 mb-10 lg:mb-20">
-    <h2 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-      ☎️ Want to stay connected?
-    </h2>
-    <p class="mt-6 lg:text-2xl leading-7 lg:leading-10 text-gray-600">
-      Whether you're looking to get-in-touch or stay-in-touch, here are a couple options.
-    </p>
+    {%
+      include section-header.html
+      type="h2"
+      title="☎️ Want to stay connected?"
+      description="Whether you're looking to get-in-touch or stay-in-touch, here are a couple options."
+    %}
   </div>
   <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
     <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
