@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Neruenv</title>
+</head>
+<body>
+  <script type="text/javascript">
+    const CLEAR_SCREEN = '\033[2J'
+    const NUMBER_OF_CREATURES = 20
+    const MAP_WIDTH = 60
+    const MAP_HEIGHT = 15
+
+    class Creature {
+      constructor(world) {
+        this._world = world
+        this.attributes = {
+          sight: {
+            distance: parseInt(Math.random() * 3)
+          },
+          position: {
+            x: parseInt(Math.random() * this._world.width),
+            y: parseInt(Math.random() * this._world.height)
+          }
+        }
+        this.data = {
+          proximalCreatures: [],
+          momentum: {
+            x: Math.random() > 0.5 ? 1 : -1,
+            y: Math.random() > 0.5 ? 1 : -1
+          }
+        }
+        this.isDestroyed = false
+      }
+
+      adapt() {
+        if (this.isDestroyed) {
+          return
+        }
+
+        this.act()
+        this.learn()
+      }
+
+      learn() {
+        this.see()
+      }
+
+      see() {
+        this.data.proximalCreatures = this._world.creatures
+          .filter((c) => c !== this)
+          .filter((creature) => {
+            return this.distanceFrom(creature.attributes.position) < this.attributes.sight.distance
+          })
+      }
+
+      act() {
+        this.runFromProximalCreatures()
+      }
+
+      distanceFrom(position) {
+        return (Math.abs(this.attributes.position.x - position.x) + Math.abs(this.attributes.position.y - position.y)) / 2
+      }
+
+      runFromProximalCreatures() {
+        const closestCreature = this.data.proximalCreatures
+            .sort((a, b) => this.distanceFrom(a) > this.distanceFrom(b))[0]
+
+        if (closestCreature) {
+          if (this.attributes.position.x > closestCreature.attributes.position.x) {
+            this.attributes.position.x += 1
+            this.data.momentum.x = 1
+          } else if (this.attributes.position.x < closestCreature.attributes.position.x) {
+            this.attributes.position.x -= 1
+            this.data.momentum.x = -1
+          } else {
+            this.attributes.position.x += this.data.momentum.x
+          }
+
+          if (this.attributes.position.y > closestCreature.attributes.position.y) {
+            this.attributes.position.y += 1
+            this.data.momentum.x = 1
+          } else if (this.attributes.position.y < closestCreature.attributes.position.y) {
+            this.attributes.position.y -= 1
+            this.data.momentum.y = -1
+          } else {
+            this.attributes.position.y += this.data.momentum.y
+          }
+        } else {
+          this.attributes.position.x += this.data.momentum.x
+          this.attributes.position.y += this.data.momentum.y
+        }
+
+        if (this.attributes.position.y > this._world.height) {
+          this.attributes.position.y -= 1
+          this.data.momentum.y = -1
+        }
+
+        if (this.attributes.position.x > this._world.width) {
+          this.attributes.position.x -= 1
+          this.data.momentum.x = -1
+        }
+
+        if (this.attributes.position.y < 0) {
+          this.attributes.position.y = 1
+          this.data.momentum.y = 1
+        }
+
+        if (this.attributes.position.x < 0) {
+          this.attributes.position.x = 1
+          this.data.momentum.x = 1
+        }
+      }
+
+      symbol() {
+        return this.isDestroyed ? 'x' : '*'
+      }
+
+      destroy() {
+        this.isDestroyed = true
+      }
+    }
+
+    class World {
+      constructor(mapWidth, mapHeight, numberOfCreatures) {
+        this.width = mapWidth
+        this.height = mapHeight
+        this.creatures = Array.from(Array(numberOfCreatures).keys(), () => new Creature(this))
+      }
+
+      loop(n, delay) {
+        this.creatures.forEach((c) => c.adapt())
+        this.enforceUniquity()
+        this.render()
+
+        if (n <= 0) return
+
+        setTimeout(() => this.loop(n - 1, delay), delay)
+      }
+
+      enforceUniquity() {
+        this.creatures.forEach((creature) => {
+          this.creatures
+            .filter((c) => c !== creature)
+            .forEach((c) => {
+              if (creature.distanceFrom(c.attributes.position) === 0) {
+                creature.destroy()
+                c.destroy()
+              }
+            })
+        })
+      }
+
+      renderPoint(x, y) {
+        const creature = this.creatures
+          .find((c) => c.attributes.position.x === x && c.attributes.position.y === y)
+
+        return creature ? creature.symbol() : ' '
+      }
+
+      render() {
+        const header = Array.from(Array(this.width + 5).keys(), () => '-').join('')
+        const rows = []
+
+        for (var y = 0; y <= this.height; y++) {
+          const row = []
+
+          for (var x = 0; x <= this.width; x++) {
+            row.push(this.renderPoint(x, this.height - y))
+          }
+
+          rows.push('| ' + row.join('') + ' |')
+        }
+
+        console.log(CLEAR_SCREEN + header + '\n' + rows.join('\n') + '\n' + header)
+        console.log('REMAINING: ' + this.creatures.filter((c) => !c.isDestroyed).length)
+      }
+    }
+
+    const world = new World(MAP_WIDTH, MAP_HEIGHT, NUMBER_OF_CREATURES)
+    world.loop(1000, 100)
+  </script>
+</body>
+</html>
