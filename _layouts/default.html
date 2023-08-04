@@ -12,12 +12,13 @@
       article a:visited, dl a:visited { color: purple; }
       a[href]:after { content: " →"; }
       a[href="/"]:after { display: none !important; }
+      [data-not-root]:before { content: "← "; }
     </style>
   </head>
   <body>
     <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
       <div class="mx-auto lg:mx-0">
-        <a href="/" class="text-xl font-semibold leading-8 tracking-tight text-blue-700 underline">Dallas Read</a>
+        <a href="/" class="text-xl font-semibold leading-8 tracking-tight text-blue-700 underline" {% if page.url != "/" %}data-not-root{% endif %}>Dallas Read</a>
         <span class="ml-3 text-gray-600 inline-block">
           {{ site.description }}
         </span>
