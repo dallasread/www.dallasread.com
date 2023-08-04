@@ -1,3 +1,4 @@
 name: DallasRead.com
+description: Dream. Risk. Win. Repeat.
 markdown: kramdown
-permalink: /:year/:month/:title
+permalink: /:category/:title
