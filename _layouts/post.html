@@ -29,7 +29,7 @@ layout: default
         %}
       </div>
       {% include dl-open.html %}
-        {% for post in site.categories[category] limit:6 %}
+        {% for post in site.categories[category] %}
           {% unless post.title == page.title %}
             {%
               include dl-definition.html
