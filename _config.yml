@@ -6,6 +6,6 @@ permalink: /:categories/:title
 collections:
   category:
     output: true
-  categories:
+  principles:
     sort_by: order
     output: true

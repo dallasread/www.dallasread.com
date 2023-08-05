@@ -1,5 +1,5 @@
 ---
-layout: category
+layout: principle
 order: 0
 slug: progress
 permalink: /progress

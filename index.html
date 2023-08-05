@@ -22,8 +22,14 @@ description: Let's talk product development, technical decisions, and shipping â
   %}
 
   {% include dl-open.html %}
-    {% for category in site.categories %}
-      {% include dl-definition.html url=category.url pre-title=category.pre-title title=category.title description=category.description %}
+    {% for principle in site.principles %}
+      {%
+        include dl-definition.html
+        url=principle.url
+        pre-title=principle.pre-title
+        title=principle.title
+        description=principle.description
+      %}
     {% endfor %}
   {% include dl-close.html %}
 </div>

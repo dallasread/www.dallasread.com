@@ -1,5 +1,5 @@
 ---
-layout: category
+layout: principle
 order: 1
 slug: think-different
 permalink: /think-different

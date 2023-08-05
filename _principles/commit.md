@@ -1,5 +1,5 @@
 ---
-layout: category
+layout: principle
 order: 2
 slug: commit
 permalink: /commit

@@ -1,5 +1,5 @@
 ---
-layout: category
+layout: principle
 order: 4
 slug: decentralize
 permalink: /decentralize

@@ -1,5 +1,5 @@
 ---
-layout: category
+layout: principle
 order: 3
 slug: agreements
 permalink: /agreements
