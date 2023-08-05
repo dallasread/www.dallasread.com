@@ -4,7 +4,7 @@ title: Neurenv
 description: An exploration in neural nets and how they evolve.
 ---
 
-<div class="overflow-auto bg-gray-800 bg-gradient-to-r from-gray-900 to-sky-900 text-green-400 text-center p-16 mb-10">
+<div class="overflow-auto bg-gray-800 bg-gradient-to-r from-gray-900 to-sky-900 text-green-400 text-center p-4 lg:p-16 mb-10">
   <code id="neurenv" class="inline-block whitespace-pre text-left"></code>
 </div>
 
@@ -214,16 +214,17 @@ The source code is embedded on this page. Have a look in the developer console f
     }
   }
 
-  const NUMBER_OF_CREATURES = 20
-  const MAP_WIDTH = 60
-  const MAP_HEIGHT = 15
-  const BRAIN_POWER = 8
+  const IS_MOBILE = window.outerWidth <= 640
+  const NUMBER_OF_CREATURES = IS_MOBILE ? 10 : 20
+  const MAP_WIDTH = IS_MOBILE ? 20 : 60
+  const MAP_HEIGHT = IS_MOBILE ? 15 : 20
+  const BRAIN_POWER = 4
   const ITERATIONS = 1000
   const ITERATION_DELAY = 100
   const RENDER_ELEMENT = document.querySelector('#neurenv')
 
   const world = new World(MAP_WIDTH, MAP_HEIGHT, NUMBER_OF_CREATURES, BRAIN_POWER)
-  world.creatures.forEach((c) => c.brain.log())
+  // world.creatures.forEach((c) => c.brain.log())
   world.loop(ITERATIONS, ITERATION_DELAY, RENDER_ELEMENT)
   // world.render(RENDER_ELEMENT)
 </script>
