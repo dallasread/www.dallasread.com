@@ -1,6 +1,6 @@
 ---
 layout: principle
-order: 3
+date: 2000-01-04 00:00:00
 slug: agreements
 permalink: /agreements
 title: Agreements over assumptions

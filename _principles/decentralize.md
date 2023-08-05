@@ -1,6 +1,6 @@
 ---
 layout: principle
-order: 4
+date: 2000-01-05 00:00:00
 slug: decentralize
 permalink: /decentralize
 title: Scatter responsibilities

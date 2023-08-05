@@ -1,6 +1,6 @@
 ---
 layout: principle
-order: 2
+date: 2000-01-03 00:00:00
 slug: commit
 permalink: /commit
 title: Commit for the long haul

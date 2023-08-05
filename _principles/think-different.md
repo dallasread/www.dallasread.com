@@ -1,6 +1,6 @@
 ---
 layout: principle
-order: 1
+date: 2000-01-02 00:00:00
 slug: think-different
 permalink: /think-different
 title: Think different

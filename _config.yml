@@ -7,5 +7,4 @@ collections:
   category:
     output: true
   principles:
-    sort_by: order
     output: true
