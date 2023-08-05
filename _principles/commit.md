@@ -2,7 +2,6 @@
 layout: principle
 date: 2000-01-03 00:00:00
 slug: commit
-permalink: /commit
 title: Commit for the long haul
 pre-title: 2.
 description: Opportunities arise, then disappear. Be prepared for the chance, slow to commit, but stand strong in your decision.

@@ -2,7 +2,6 @@
 layout: principle
 date: 2000-01-02 00:00:00
 slug: think-different
-permalink: /think-different
 title: Think different
 pre-title: 1.
 description: A tiny idea is capable of solving a monumental problem. Think outside of the box, but don't lie to yourself.

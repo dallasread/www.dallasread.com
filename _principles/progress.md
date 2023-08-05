@@ -2,7 +2,6 @@
 layout: principle
 date: 2000-01-01 00:00:00
 slug: progress
-permalink: /progress
 title: Progress is everything
 pre-title: 0.
 description: Humans are wired to thrive when they progress, achieve, and evolve. Getting things done brings fulfillment, happiness, and strength.
