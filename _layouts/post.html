@@ -1,0 +1,45 @@
+---
+layout: default
+---
+
+<div class="mb-10 lg:mb-20">
+  {%
+    include section-header.html
+    type="h1"
+    title=page.title
+    description=page.description
+  %}
+</div>
+
+<div class="mb-10 lg:mb-20">
+  {{content}}
+</div>
+
+{% unless page.categories == null %}
+  {% capture category %}{{ page.categories | first }}{% endcapture %}
+  {% unless site.categories[category].size == 1 %}
+    <hr>
+    <div class="mt-10 lg:mt-20">
+      <div class="mb-10 lg:mb-20">
+        {%
+          include section-header.html
+          type="h2"
+          title="Looking for more?"
+          description="Read more about this..."
+        %}
+      </div>
+      {% include dl-open.html %}
+        {% for post in site.categories[category] limit:6 %}
+          {% unless post.title == page.title %}
+            {%
+              include dl-definition.html
+              url=post.url
+              title=post.title
+              description=post.description
+            %}
+          {% endunless %}
+        {% endfor %}
+      {% include dl-close.html %}
+    </div>
+  {% endunless %}
+{% endunless %}
