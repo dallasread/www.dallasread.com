@@ -11,19 +11,14 @@
     <style type="text/css">
       article a:visited, dl a:visited { color: purple; }
       a[href]:after { content: " →"; }
-      a[href="/"]:after { display: none !important; }
+      a[data-back]:after, a[href="/"]:after { display: none !important; }
       [data-before-text]:before { content: attr(data-before-text); }
       [data-back]:before { content: "← "; }
     </style>
   </head>
   <body>
     <div class="mx-auto max-w-7xl px-6 py-16 sm:py-24 lg:px-8">
-      <div class="mx-auto lg:mx-0">
-        <a href="/" class="text-xl font-semibold leading-8 tracking-tight text-blue-700 underline" {% if page.url != "/" %}data-back{% endif %}>Dallas Read</a>
-        <span class="ml-3 text-gray-600 inline-block">
-          {{ site.description }}
-        </span>
-      </div>
+      {% include back-nav.html %}
 
       <div class="my-10 lg:my-20">
         {{ content }}

@@ -1,0 +1,23 @@
+{% if page.categories == null or page.categories.size == 0 %}
+  {% assign title = site.name %}
+  {% assign description = site.description %}
+  {% assign url = "/" %}
+{% else %}
+  {% capture slug %}{{ page.categories | first }}{% endcapture %}
+  {% for principle in site.principles %}
+    {% if principle.slug == slug %}
+      {% assign title = principle.title %}
+      {% assign url = principle.url %}
+      {% break %}
+    {% endif %}
+  {% endfor %}
+{% endif %}
+
+<div class="mx-auto lg:mx-0">
+  <a href="{{ url }}" class="text-xl font-semibold leading-8 tracking-tight text-blue-700 underline" {% if page.url != "/" %}data-back{% endif %}>{{ title }}</a>
+  {% if description %}
+    <span class="ml-3 text-gray-600 inline-block">
+      {{ description }}
+    </span>
+  {% endif %}
+</div>
