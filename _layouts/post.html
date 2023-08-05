@@ -28,18 +28,10 @@ layout: default
             description="Read more about this..."
         %}
       </div>
-      {% include dl-open.html %}
-        {% for post in site.categories[category] %}
-          {% unless post.title == page.title %}
-            {%
-              include dl-definition.html
-                url=post.url
-                title=post.title
-                description=post.description
-            %}
-          {% endunless %}
-        {% endfor %}
-      {% include dl-close.html %}
+      {%
+        include category-posts.html
+          category=category
+      %}
     </div>
   {% endunless %}
 {% endunless %}

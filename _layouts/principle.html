@@ -10,18 +10,10 @@ layout: default
       description=page.description
   %}
 
-  {% include dl-open.html %}
-    {% for post in site.posts %}
-      {% if post.categories contains page.slug %}
-        {%
-          include dl-definition.html
-            url=post.url
-            title=post.title
-            description=post.description
-        %}
-      {% endif %}
-    {% endfor %}
-  {% include dl-close.html %}
+  {%
+    include category-posts.html
+      category=page.slug
+  %}
 
   <div class="prose">
     {{ content }}
