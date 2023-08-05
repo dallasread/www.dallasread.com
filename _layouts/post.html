@@ -5,9 +5,9 @@ layout: default
 <div class="mb-10 lg:mb-20">
   {%
     include section-header.html
-    type="h1"
-    title=page.title
-    description=page.description
+      type="h1"
+      title=page.title
+      description=page.description
   %}
 </div>
 
@@ -23,9 +23,9 @@ layout: default
       <div class="mb-10 lg:mb-20">
         {%
           include section-header.html
-          type="h2"
-          title="Looking for more?"
-          description="Read more about this..."
+            type="h2"
+            title="Looking for more?"
+            description="Read more about this..."
         %}
       </div>
       {% include dl-open.html %}
@@ -33,9 +33,9 @@ layout: default
           {% unless post.title == page.title %}
             {%
               include dl-definition.html
-              url=post.url
-              title=post.title
-              description=post.description
+                url=post.url
+                title=post.title
+                description=post.description
             %}
           {% endunless %}
         {% endfor %}

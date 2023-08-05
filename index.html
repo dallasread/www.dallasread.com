@@ -16,19 +16,19 @@ description: Let's talk product development, technical decisions, and shipping ‚
   {% endcapture %}
   {%
     include section-header.html
-    type="h1"
-    title=page.title
-    description=description
+      type="h1"
+      title=page.title
+      description=description
   %}
 
   {% include dl-open.html %}
     {% for principle in site.principles %}
       {%
         include dl-definition.html
-        url=principle.url
-        pre-title=principle.pre-title
-        title=principle.title
-        description=principle.description
+          url=principle.url
+          pre-title=principle.pre-title
+          title=principle.title
+          description=principle.description
       %}
     {% endfor %}
   {% include dl-close.html %}
@@ -39,19 +39,18 @@ description: Let's talk product development, technical decisions, and shipping ‚
 <div class="my-10 lg:my-20">
   {%
     include section-header.html
-    type="h2"
-    title="üî® I'm working on a few things."
-    description="I've worked on project and project, but I've finally settled in to a few where I can make a big difference."
+      type="h2"
+      title="üî® I'm working on a few things."
+      description="I've worked on project and project, but I've finally settled in to a few where I can make a big difference."
   %}
 
   <div class="lg:mt-10 lg:mt-20 mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-12 sm:gap-y-16 lg:grid-cols-2">
     <div class="mx-auto w-full max-w-2xl lg:border-t lg:border-gray-900/10 pt-12 sm:pt-16 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
       <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
-        <h2 class="mt-2 text-lg font-semibold leading-6">
-          <a href="https://dnsimple.com" class="text-blue-700 underline" target="_blank">
-            Simplifying DNS &amp; domains @ DNSimple
-          </a>
-        </h2>
+        {% include h2-link-open.html url="https://dnsimple.com" target="_blank" %}
+          Simplifying DNS &amp; domains @ DNSimple
+        {% include h2-link-close.html %}
+
         {% include p-open.html %}
           Long before I ever considered joining the team, I was a <em>fan</em>.
           And customer.
@@ -59,6 +58,7 @@ description: Let's talk product development, technical decisions, and shipping ‚
           Was it DNSound?
           Nah, just the lack upselling, cross-selling, and the get-in-and-do-my-work-and-get-out experience.
         {% include p-close.html %}
+
         {% include p-open.html %}
           Fast-forwarding a <em>few</em> years, I now lead the Feature team.
           Seeing new features land in my own personal DNSimple account that I helped forge is an amazing thrill.
@@ -68,11 +68,10 @@ description: Let's talk product development, technical decisions, and shipping ‚
       </article>
 
       <!-- <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
-        <h2 class="mt-2 text-lg font-semibold leading-6">
-          <span href="#" :class="text-blue-700 underline" target="_blank">
+        {% include h2-link-open.html url="#" target="_blank" %}
             Building in my community
-          </span>
-        </h2>
+        {% include h2-link-close.html %}
+
         {% include p-open.html %}
           Family.
           Town.
@@ -87,11 +86,10 @@ description: Let's talk product development, technical decisions, and shipping ‚
     <div class="mx-auto w-full max-w-2xl lg:border-t border-gray-900/10 lg:mx-0 lg:max-w-none lg:border-t-0 lg:pt-0">
       <article class="pb-12">
         <div class="group relative max-w-xl">
-          <h2 class="mt-2 text-lg font-semibold leading-6">
-            <a href="http://www.followalong.com" class="text-blue-700 underline" target="_blank">
+          {% include h2-link-open.html url="https://www.followalong.com" target="_blank" %}
               Decentralizing the internet @ Follow Along
-            </a>
-          </h2>
+          {% include h2-link-close.html %}
+
           {% include p-open.html %}
             There is no practical reason why social media companies have our data siloed away (and sold off).
             A variety of technologies and tools already exist that could add checks on their omnipotent reach.
@@ -102,11 +100,9 @@ description: Let's talk product development, technical decisions, and shipping ‚
 
       <article>
         <div class="group relative max-w-xl">
-          <h2 class="mt-2 text-lg font-semibold leading-6">
-            <a href="http://app.togetherprogress.com" class="text-blue-700 underline" target="_blank">
+          {% include h2-link-open.html url="https://app.togetherprogress.com" target="_blank" %}
               Adding purpose to relationships @ Together Progress
-            </a>
-          </h2>
+          {% include h2-link-close.html %}
 
           {% include p-open.html %}
             Like <em>you</em>, I wear many hats.
@@ -120,11 +116,10 @@ description: Let's talk product development, technical decisions, and shipping ‚
 
       <!-- <article class="pb-12">
         <div class="group relative max-w-xl">
-          <h2 class="mt-2 text-lg font-semibold leading-6">
-            <a href="https://fastfinance.dallasread.com" class="text-blue-700 underline">
-              Simplifying personal finances @ Fast Finance
-            </a>
-          </h2>
+          {% include h2-link-open.html url="https://fastfinance.dallasread.com" target="_blank" %}
+            Simplifying personal finances @ Fast Finance
+          {% include h2-link-close.html %}
+
           {% include p-open.html %}
             Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel iusto corrupti dicta laboris incididunt.
           {% include p-close.html %}
@@ -141,26 +136,26 @@ description: Let's talk product development, technical decisions, and shipping ‚
   <div class="mt-10 mb-10 lg:mb-20">
     {%
       include section-header.html
-      type="h2"
-      title="‚òéÔ∏è Want to stay connected?"
-      description="Whether you're looking to get-in-touch or stay-in-touch, here are a couple options."
+        type="h2"
+        title="‚òéÔ∏è Want to stay connected?"
+        description="Whether you're looking to get-in-touch or stay-in-touch, here are a couple options."
     %}
   </div>
   <div class="mx-auto grid max-w-7xl grid-cols-1 gap-x-8 gap-y-8 md:grid-cols-2">
     <article class="mx-auto w-full max-w-2xl lg:mx-0 lg:max-w-lg">
-      <h2 class="mt-2 text-lg font-semibold leading-6">
-        <a href="" data-email="WkdGc2JHRnpRR1Y0WTJsMFpXTnlaV0YwYVhabExtTmg=" class="text-blue-700 underline">
-          Send me an email message
-        </a>
-        <script>
-          const $email = document.querySelector('[data-email]')
-          const email = atob(atob($email.getAttribute('data-email')))
+      {% include h2-link-open.html url="javascript:;" target="_blank" data-email="WkdGc2JHRnpRR1Y0WTJsMFpXTnlaV0YwYVhabExtTmg=" %}
+        Send me an email message
+      {% include h2-link-close.html %}
 
-          setTimeout(() => {
-            $email.setAttribute('href', 'mailto:' + email)
-          }, Math.random() * 4)
-        </script>
-      </h2>
+      <script>
+        const $email = document.querySelector('[data-email]')
+        const email = atob(atob($email.getAttribute('data-email')))
+
+        setTimeout(() => {
+          $email.setAttribute('href', 'mailto:' + email)
+        }, Math.random() * 6)
+      </script>
+
       {% include p-open.html %}
         I'd love to hear from you. Drop me a line if you are stuck on a problem, are feeling <em>meh</em>, or even an accomplishment you would like to celebrate. Let's connect!
       {% include p-close.html %}
