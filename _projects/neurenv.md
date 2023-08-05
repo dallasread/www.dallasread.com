@@ -4,13 +4,18 @@ title: Neurenv
 description: An exploration in neural nets and how they evolve.
 ---
 
-Check the developer console. 👻
+<div class="overflow-auto bg-gray-800 bg-gradient-to-r from-gray-900 to-sky-900 text-green-400 text-center p-16 mb-10">
+  <code id="neurenv" class="inline-block whitespace-pre text-left"></code>
+</div>
+
+The source code is embedded on this page. Have a look in the developer console for more! 👻
 
 <script type="text/javascript">
   const CLEAR_SCREEN = '\033[2J'
   const shuffle = (arr, n) => arr.sort(() => 0.5 - Math.random()).slice(0, n)
   const rand = (min, max) => Math.random() * (max - min) + min
   const randInt = (min, max) => parseInt(rand(min, max))
+  const createArray = (length, func) => Array.apply(null, { length }).map(func)
 
   class Neuron {
     constructor(name) {
@@ -26,7 +31,13 @@ Check the developer console. 👻
 
   class SightSensor extends Sensor { }
 
-  class Urge extends Neuron { }
+  class Action extends Neuron {
+    constructor(name, func) {
+      super(name)
+
+      this.func = func
+    }
+  }
 
   class Synapse {
     constructor(from, to, weight, activation) {
@@ -38,25 +49,11 @@ Check the developer console. 👻
   }
 
   class Brain {
-    constructor(creature, brainPower) {
+    constructor(creature, sensors, power, urges) {
       this.creature = creature
-
-      this.sensors = [
-        new Sensor('SEE_NORTH'),
-        new Sensor('SEE_SOUTH'),
-        new Sensor('SEE_EAST'),
-        new Sensor('SEE_WEST'),
-      ]
-
-      this.innerNeurons = Array.from(Array(brainPower).keys(), (index) => new Neuron(`INNER_${index}`))
-
-      this.urges = [
-        new Urge('MOVE_NORTH'),
-        new Urge('MOVE_SOUTH'),
-        new Urge('MOVE_EAST'),
-        new Urge('MOVE_WEST'),
-      ]
-
+      this.sensors = sensors
+      this.innerNeurons = createArray(power, (index) => new Neuron(`INNER_${index}`))
+      this.urges = urges
       this.synapses = []
 
       this.wireRandomly()
@@ -88,13 +85,13 @@ Check the developer console. 👻
     }
 
     execute() {
-      const urgeWeights = Array.from(Array(this.urges).keys(), (index) => 0)
+      const weightedUrges = createArray(this.urges.length, () => Math.random())
 
-      this.sensors.forEach(() => {
+//       this.sensors.forEach(() => {
+//
+//       })
 
-      })
-
-      return urgeWeights
+      return weightedUrges
     }
 
     log() {
@@ -109,12 +106,24 @@ Check the developer console. 👻
   class Creature {
     constructor(world, brainPower) {
       this.world = world
-      this.brain = new Brain(this, brainPower)
-      this.isDestroyed = false
+      this.sensors = [
+        new Sensor('SEE_NORTH'),
+        new Sensor('SEE_SOUTH'),
+        new Sensor('SEE_EAST'),
+        new Sensor('SEE_WEST'),
+      ]
+      this.urges = [
+        new Action('MOVE_NORTH', () => this.move(0, +1)),
+        new Action('MOVE_SOUTH', () => this.move(0, -1)),
+        new Action('MOVE_EAST', () => this.move(1, 0)),
+        new Action('MOVE_WEST', () => this.move(-1, 0)),
+      ]
+      this.brain = new Brain(this, this.sensors, brainPower, this.urges)
       this.position = {
         x: randInt(0, this.world.width),
         y: randInt(0, this.world.height),
       }
+      this.isDestroyed = false
     }
 
     adapt() {
@@ -125,8 +134,21 @@ Check the developer console. 👻
       this.act( this.brain.execute() )
     }
 
-    act(urgeWeights) {
+    move(deltaX, deltaY) {
+      if (deltaX !== 0) {
+        this.position.x = Math.max(Math.min(this.position.x + deltaX, this.world.width), 0)
+      }
 
+      if (deltaY !== 0) {
+        this.position.y = Math.max(Math.min(this.position.y + deltaY, this.world.height), 0)
+      }
+    }
+
+    act(weightedUrges) {
+      this.urges
+        .filter((_, index) => weightedUrges[index] > 0.25)
+        // TODO: filter by some activation function?
+        .forEach((action) => action.func.call(this))
     }
 
     symbol() {
@@ -143,16 +165,16 @@ Check the developer console. 👻
       this.width = mapWidth
       this.height = mapHeight
       this.brainPower = brainPower
-      this.creatures = Array.from(Array(numberOfCreatures).keys(), () => new Creature(this, brainPower))
+      this.creatures = createArray(numberOfCreatures, () => new Creature(this, brainPower))
     }
 
-    loop(n, delay) {
+    loop(n, delay, renderElement) {
       this.creatures.forEach((c) => c.adapt())
-      this.render()
+      this.render(renderElement)
 
       if (n <= 0) return
 
-      setTimeout(() => this.loop(n - 1, delay), delay)
+      setTimeout(() => this.loop(n - 1, delay, renderElement), delay)
     }
 
     renderCreature(x, y) {
@@ -162,8 +184,8 @@ Check the developer console. 👻
       return creature ? creature.symbol() : ' '
     }
 
-    render() {
-      const header = Array.from(Array(this.width + 5).keys(), () => '-').join('')
+    render(renderElement) {
+      const header = '|' + Array.from(Array(this.width + 3).keys(), () => '-').join('') + '|'
       const rows = []
 
       for (var y = 0; y <= this.height; y++) {
@@ -176,20 +198,31 @@ Check the developer console. 👻
         rows.push('| ' + row.join('') + ' |')
       }
 
-      console.log(header + '\n' + rows.join('\n') + '\n' + header)
-      console.log('REMAINING: ' + this.creatures.filter((c) => !c.isDestroyed).length)
+      const LINE_BREAK = '\n'
+      let output = header + LINE_BREAK + rows.join(LINE_BREAK) + LINE_BREAK + header
+      output += LINE_BREAK + 'REMAINING: ' + this.creatures.filter((c) => !c.isDestroyed).length
+
+      if (renderElement) {
+        renderElement.cols = this.width
+        renderElement.rows = this.height
+
+        renderElement.textContent = output
+      } else {
+        console.log(output)
+      }
     }
   }
 
   const NUMBER_OF_CREATURES = 20
   const MAP_WIDTH = 60
   const MAP_HEIGHT = 15
-  const BRAIN_POWER = 4
+  const BRAIN_POWER = 8
   const ITERATIONS = 1000
   const ITERATION_DELAY = 100
+  const RENDER_ELEMENT = document.querySelector('#neurenv')
 
   const world = new World(MAP_WIDTH, MAP_HEIGHT, NUMBER_OF_CREATURES, BRAIN_POWER)
   world.creatures.forEach((c) => c.brain.log())
-  // world.loop(ITERATIONS, ITERATION_DELAY)
-  world.render()
+  world.loop(ITERATIONS, ITERATION_DELAY, RENDER_ELEMENT)
+  // world.render(RENDER_ELEMENT)
 </script>
