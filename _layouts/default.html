@@ -12,6 +12,7 @@
       article a:visited, dl a:visited { color: purple; }
       a[href]:after { content: " →"; }
       a[href="/"]:after { display: none !important; }
+      [data-before-text]:before { content: attr(data-before-text); }
       [data-not-root]:before { content: "← "; }
     </style>
   </head>

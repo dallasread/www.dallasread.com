@@ -1,0 +1,25 @@
+---
+layout: default
+---
+
+<div class="mb-10 lg:mb-20">
+  {%
+    include section-header.html
+    type="h1"
+    title=page.title
+    description=page.description
+  %}
+
+  {% include dl-open.html %}
+    {% for post in site.posts %}
+      {% if post.categories contains page.slug %}
+        {%
+          include dl-definition.html
+          url=post.url
+          title=post.title
+          description=post.description
+        %}
+      {% endif %}
+    {% endfor %}
+  {% include dl-close.html %}
+</div>

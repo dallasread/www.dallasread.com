@@ -4,12 +4,8 @@ title: Hi! I'm here to help <em>you</em>. 🫵
 description: Let's talk product development, technical decisions, and shipping – along with discussions of life, liberty and the philosophy of happiness.
 ---
 
-<div class="my-10 lg:my-20">
-  <h1 class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-    Hi! I'm here to help <em>you</em>. 🫵
-  </h1>
-
-  <p class="mt-6 leading-7 lg:text-2xl lg:leading-10 text-gray-600">
+<div class="mb-10 lg:mb-20">
+  {% capture description %}
     I've traveled our beautiful world, looking at it from many perspectives.
     On my adventure, I've been quiet.
     I watched; I listened; I explored.
@@ -17,120 +13,19 @@ description: Let's talk product development, technical decisions, and shipping �
     To my surprise, many of them had, inscribed on them, secrets as to "how the world works."
     I've rigorously tested the claims using experience and evidence.
     At long last, I'm ready to share the things that I've been able to distill &mdash; honoured to have had the absurd luck of unearthing them along the way.
-  </p>
+  {% endcapture %}
+  {%
+    include section-header.html
+    type="h1"
+    title=page.title
+    description=description
+  %}
 
-  <dl class="mt-10 lg:mt-20 space-y-8 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-16 sm:space-y-0 lg:grid-cols-3 lg:gap-x-10">
-    <div>
-      <dt class="text-lg font-semibold leading-8 tracking-tight">
-        <span href="article.html" :class="text-blue-700 underline">
-          0. Progress is everything
-        </span>
-      </dt>
-      <dd class="mt-2 leading-7 text-gray-600">
-        Humans are wired to thrive when they progress, achieve, and evolve.
-        Getting things done brings fulfillment, happiness, and strength.
-        <!-- Getting things done.
-        I work on Product Development & Delivery.
-        Keep the pace.
-        "Good enough" is good enough.
-        First principles.
-        Don't refactor too early.
-        Ask why, why, why.
-        Ask how, how, how.
-        Momentum. -->
-    </div>
-
-    <div>
-      <dt class="text-lg font-semibold leading-8 tracking-tight">
-        <span href="article.html" :class="text-blue-700 underline">
-          1. Think different
-        </span>
-      </dt>
-      <dd class="mt-2 leading-7 text-gray-600">
-        A tiny idea is capable of solving a monumental problem.
-        Think outside of the box, but don't lie to yourself.
-        <!-- Think different.
-        Be remarkable.
-        It's okay to do things differently – thinking from different perspectives.
-        Almost everyone follows.
-        Leave a legacy;
-        do something different.
-        Think different.
-        Tell yourself the truth.
-        Be honest with yourself.
-        It's really hard to know if you're doing the right thing.
-        Stand strong for the things you know.
-        Question everything.
-        The experts don't know.
-        Learn to expose yourself to the worst case scenario.
-        It's ok to just be human. -->
-      </dd>
-    </div>
-
-    <div>
-      <dt class="text-lg font-semibold leading-8 tracking-tight">
-        <span href="article.html" :class="text-blue-700 underline">
-          2. Commit for the long haul
-        </span>
-      </dt>
-      <dd class="mt-2 leading-7 text-gray-600">
-        Opportunities arise, then disappear.
-        Be prepared for the chance, slow to commit, but stand strong in your decision.
-        <!-- Commit to the things you care about.
-        The greatest work is achieved when the escape hatch is destroyed.
-        Time is on your side.
-        Take time to think & heal.
-        Call out risks first.
-        Consider trade-offs.
-        Consider side-effects.
-        Opportunities arise and fall.
-        Consider how they will improve or curse your life.
-        Many things beg for your time, energy, and resources.
-        Keep control of your future.
-        Or don't.
-        Debt chains you.
-        Optionality.
-        Hold your cards close. -->
-      </dd>
-    </div>
-
-    <div>
-      <dt class="text-lg font-semibold leading-8 tracking-tight">
-        <span href="article.html" :class="text-blue-700 underline">
-          3. Agreements over assumptions
-        </span>
-      </dt>
-      <dd class="mt-2 leading-7 text-gray-600">
-        We all get frustrated when things don't go the way we expect.
-        Pre-emptively transform expectations into explicit agreements to save a world of pain.
-        <!-- Agreements vs expectations.
-        Consent. -->
-      </dd>
-    </div>
-
-    <div>
-      <dt class="text-lg font-semibold leading-8 tracking-tight">
-        <span href="article.html" :class="text-blue-700 underline">
-          4. Scatter responsibilities
-        </span>
-      </dt>
-      <dd class="mt-2 leading-7 text-gray-600">
-        Power corrupts; obedience is no virtue.
-        We can help save each other by decentralizing responsibilities.
-      </dd>
-    </div>
-
-    <div>
-      <dt class="text-lg font-semibold leading-8 tracking-tight">
-        <span href="article.html" :class="text-blue-700 underline">
-          5. Iterate to Learn
-        </span>
-      </dt>
-      <dd class="mt-2 leading-7 text-gray-600">
-        Iteration, exponential growth, random mutation.
-      </dd>
-    </div>
-  </dl>
+  {% include dl-open.html %}
+    {% for category in site.categories %}
+      {% include dl-definition.html url=category.url pre-title=category.pre-title title=category.title description=category.description %}
+    {% endfor %}
+  {% include dl-close.html %}
 </div>
 
 <hr>
