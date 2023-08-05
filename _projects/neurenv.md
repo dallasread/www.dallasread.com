@@ -208,6 +208,7 @@ The source code is embedded on this page. Have a look in the developer console f
 
         renderElement.textContent = output
       } else {
+        console.log(CLEAR_SCREEN)
         console.log(output)
       }
     }
