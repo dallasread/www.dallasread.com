@@ -12,14 +12,21 @@ The source code is embedded on this page. Have a look in the developer console f
 
 <script type="text/javascript">
   const CLEAR_SCREEN = '\033[2J'
+
   const shuffle = (arr, n) => arr.sort(() => 0.5 - Math.random()).slice(0, n)
   const rand = (min, max) => Math.random() * (max - min) + min
   const randInt = (min, max) => parseInt(rand(min, max))
   const createArray = (length, func) => Array.apply(null, { length }).map(func)
 
+  const DIRECTION_NORTH = 'NORTH'
+  const DIRECTION_SOUTH = 'SOUTH'
+  const DIRECTION_EAST = 'EAST'
+  const DIRECTION_WEST = 'WEST'
+
   class Neuron {
-    constructor(name) {
+    constructor(name, func) {
       this.name = name
+      this.func = func
     }
 
     nameWithType() {
@@ -28,16 +35,8 @@ The source code is embedded on this page. Have a look in the developer console f
   }
 
   class Sensor extends Neuron { }
-
   class SightSensor extends Sensor { }
-
-  class Action extends Neuron {
-    constructor(name, func) {
-      super(name)
-
-      this.func = func
-    }
-  }
+  class Action extends Neuron { }
 
   class Synapse {
     constructor(from, to, weight, activation) {
@@ -87,11 +86,13 @@ The source code is embedded on this page. Have a look in the developer console f
     execute() {
       const weightedUrges = createArray(this.urges.length, () => Math.random())
 
-//       this.sensors.forEach(() => {
-//
-//       })
+      this.sensors.forEach((sensor) => {
+        sensor.func.call()
+        // chain multiply all synapse weights along the path
+        // add when popping in the output layer
+      })
 
-      return weightedUrges
+      return weightedUrges.map((weight) => Math.tanh(weight))
     }
 
     log() {
@@ -107,16 +108,16 @@ The source code is embedded on this page. Have a look in the developer console f
     constructor(world, brainPower) {
       this.world = world
       this.sensors = [
-        new Sensor('SEE_NORTH'),
-        new Sensor('SEE_SOUTH'),
-        new Sensor('SEE_EAST'),
-        new Sensor('SEE_WEST'),
+        new Sensor(`SEE_${DIRECTION_NORTH}`, () => this.look(DIRECTION_NORTH)),
+        new Sensor(`SEE_${DIRECTION_SOUTH}`, () => this.look(DIRECTION_SOUTH)),
+        new Sensor(`SEE_${DIRECTION_EAST}`, () => this.look(DIRECTION_EAST)),
+        new Sensor(`SEE_${DIRECTION_WEST}`, () => this.look(DIRECTION_WEST)),
       ]
       this.urges = [
-        new Action('MOVE_NORTH', () => this.move(0, +1)),
-        new Action('MOVE_SOUTH', () => this.move(0, -1)),
-        new Action('MOVE_EAST', () => this.move(1, 0)),
-        new Action('MOVE_WEST', () => this.move(-1, 0)),
+        new Action(`MOVE_${DIRECTION_NORTH}`, () => this.move(0, +1)),
+        new Action(`MOVE_${DIRECTION_SOUTH}`, () => this.move(0, -1)),
+        new Action(`MOVE_${DIRECTION_EAST}`, () => this.move(1, 0)),
+        new Action(`MOVE_${DIRECTION_WEST}`, () => this.move(-1, 0)),
       ]
       this.brain = new Brain(this, this.sensors, brainPower, this.urges)
       this.position = {
@@ -142,6 +143,22 @@ The source code is embedded on this page. Have a look in the developer console f
       if (deltaY !== 0) {
         this.position.y = Math.max(Math.min(this.position.y + deltaY, this.world.height), 0)
       }
+    }
+
+    look(sensor, direction) {
+      let creatures = this.world.creatures
+
+      if (direction === DIRECTION_NORTH) {
+        creatures = creatures.filter((c) => Math.abs(c.position.x - this.position.x) < 2 && c.position.y > this.position.y && c.position.y - this.position.y < 3)
+      } else if (direction === DIRECTION_SOUTH) {
+        creatures = creatures.filter((c) => Math.abs(c.position.x - this.position.x) < 2 && c.position.y < this.position.y && this.position.y - c.position.y < 3)
+      } else if (direction === DIRECTION_EAST) {
+        creatures = creatures.filter((c) => Math.abs(c.position.y - this.position.y) < 2 && c.position.x > this.position.x && c.position.x - this.position.x < 3)
+      } else if (direction === DIRECTION_WEST) {
+        creatures = creatures.filter((c) => Math.abs(c.position.y - this.position.y) < 2 && c.position.x < this.position.x && this.position.x - c.position.x < 3)
+      }
+
+      return Math.tanh(creatures.length)
     }
 
     act(weightedUrges) {
