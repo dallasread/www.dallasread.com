@@ -6,7 +6,7 @@ categories: progress
 ---
 
 <div class="overflow-auto bg-gray-800 bg-gradient-to-r from-gray-900 to-sky-900 text-green-400 text-center p-4 lg:p-16 mb-10">
-  <code id="neurenv" class="inline-block whitespace-pre text-left font-monospace"></code>
+  <code id="neurenv" class="inline-block whitespace-pre text-left leading-none"></code>
 </div>
 
 The source code is embedded on this page. Have a look in the developer console for more! 👻
@@ -143,7 +143,7 @@ Sensors are zeroed between generations
       const weightedUrges = createArray(this.urges.length, () => 0)
 
       this.sensors
-      //   .concat(this.innerNeurons)
+        .concat(this.innerNeurons)
         .concat(this.urges)
         .forEach((n) => n.zeroValue())
 
@@ -157,12 +157,12 @@ Sensors are zeroed between generations
       })
 
       this.urges.forEach((urge) => {
-        urge.setValue(Math.tanh(urge.value))
+        urge.setValue(Math.abs(Math.tanh(urge.value)))
       })
 
       return this.urges
        // TODO: filter by some activation function?
-        .filter((u) => u.getValue() > 0.5)
+        .filter((u) => u.getValue() > 0.35)
     }
 
     log() {
@@ -246,6 +246,7 @@ Sensors are zeroed between generations
     }
 
     look(direction) {
+      return Math.random()
       if (direction === DIRECTION_NORTH) {
         return this.world.height - this.position.y
       } else if (direction === DIRECTION_SOUTH) {
@@ -282,18 +283,18 @@ Sensors are zeroed between generations
       this.mutation = mutation
     }
 
-    start(n, delay, renderElement) {
+    start(delay, renderElement) {
       this.creatures.forEach((c) => c.spawn())
-      this.loop(n, delay, renderElement)
+      this.loop(delay, renderElement)
     }
 
-    loop(n, delay, renderElement) {
+    loop(delay, renderElement) {
+      if (this.creatures.filter((c) => !c.isDestroyed).length > 500) return
+
       this.creatures.forEach((c) => c.adapt())
       this.render(renderElement)
 
-      if (n <= 0) return
-
-      setTimeout(() => this.loop(n - 1, delay, renderElement), delay)
+      setTimeout(() => this.loop(delay, renderElement), delay)
     }
 
     renderCreature(x, y) {
@@ -322,7 +323,7 @@ Sensors are zeroed between generations
     }
 
     render(renderElement) {
-      const header = '|' + Array.from(Array(this.width + 3).keys(), () => '|').join('') + '|'
+      const header = '|' + Array.from(Array((this.width / 2) - 5).keys(), () => '|').join('') + ' ReplicaZone ' + Array.from(Array((this.width / 2) - 5).keys(), () => '|').join('') + '|'
       const footer = '|' + Array.from(Array(this.width + 3).keys(), () => '_').join('') + '|'
       const rows = []
 
@@ -337,8 +338,15 @@ Sensors are zeroed between generations
       }
 
       const LINE_BREAK = '\n'
-      let output = header + LINE_BREAK + rows.join(LINE_BREAK) + LINE_BREAK + footer
-      output += LINE_BREAK + 'REMAINING: ' + this.creatures.filter((c) => !c.isDestroyed).length
+      let output = header
+      output += LINE_BREAK
+      output += rows.join(LINE_BREAK)
+      output += LINE_BREAK
+      output += footer
+      output += LINE_BREAK
+      output += LINE_BREAK
+      output += 'DOTS: '
+      output += this.creatures.filter((c) => !c.isDestroyed).length
 
       if (renderElement) {
         renderElement.cols = this.width
@@ -356,8 +364,7 @@ Sensors are zeroed between generations
   const NUMBER_OF_CREATURES = 5 // IS_MOBILE ? 10 : 20
   const MAP_WIDTH = IS_MOBILE ? 20 : 60
   const MAP_HEIGHT = IS_MOBILE ? 15 : 20
-  const ITERATIONS = 50
-  const ITERATION_DELAY = 200
+  const ITERATION_DELAY = 50
   const RENDER_ELEMENT = document.querySelector('#neurenv')
   const BRAIN_OPTIONS = {
     sensors: [
@@ -376,7 +383,7 @@ Sensors are zeroed between generations
   }
 
   const world = new World(MAP_WIDTH, MAP_HEIGHT, NUMBER_OF_CREATURES, BRAIN_OPTIONS)
-  world.start(ITERATIONS, ITERATION_DELAY, RENDER_ELEMENT)
-  // world.creatures.forEach((c) => c.brain.log())
+  world.start(ITERATION_DELAY, RENDER_ELEMENT)
+  world.creatures.forEach((c) => c.brain.log())
   // world.render(RENDER_ELEMENT)
 </script>
