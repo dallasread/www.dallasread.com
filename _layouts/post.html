@@ -12,7 +12,9 @@ layout: default
 </div>
 
 <div class="mb-10 lg:mb-20">
-  {{content}}
+  <div class="prose max-w-prose text-lg">
+    {{content}}
+  </div>
 </div>
 
 {% unless page.categories == null %}
