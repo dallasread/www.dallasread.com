@@ -5,22 +5,23 @@ description: Random mutation is the key to resilience and opening pathways with 
 categories: progress
 ---
 
-I've always had many projects and endeavours on the go and I think I've finally found the post-rationalization for them: they serve as a "random mutation". 
+I've always had many projects and endeavours on the go and I think I've finally found the perfect excuse to continue on: they serve as a "random mutation".
 
-When you do the same things all the time, you end up with the same result. Picking up weird and fringe projects is a great way to add a little "random mutation" in your life, which can lead to exponential results down the road.
+When you do the same things all the time, you end up with the same result. Picking up weird and fringe projects is a great way to add a little "random mutation" in your life, which can lead to _exponential_ results down the road.
 
-A random mutation can be anything that's new to you:
+In sum, a random mutation is exposure to something new:
 
 - Cooking a new meal.
 - Learning a new song on the piano.
 - Creating a little programming script.
 
-What's even better is that doesn't even have to be *that* involved. It could be:
+It could be even simpler:
 
 - Taking a few minutes to explore an out-of-nowhere thought.
 - Thinking about the "dream" fix for a problem.
+- Reading a book.
 
-A random mutation just needs to be something that you've not explored before. To illustrate, here's a very simple implementation of a neural net at play:
+To illustrate, here's a very simple implementation of a neural net at play:
 
 <div class="overflow-auto bg-gray-800 bg-gradient-to-r from-gray-900 to-sky-900 text-green-400 text-center p-4 lg:p-16 mb-10">
   <code id="neurenv" class="inline-block whitespace-pre text-left leading-none"></code>
@@ -30,20 +31,20 @@ A random mutation just needs to be something that you've not explored before. To
 - Each "creature" starts with 4 sensors (detect north, south, east, west).
 - Each "creature" starts with 4 actions (move up, down, right, left).
 - Each "creature" starts with 2 neutral neurons that form the "hidden layer".
-- Each "creature" has a few random "synapses" or "connections" created from the sensors to the neutrals, then from the neutrals to the actions. 
+- Each "creature" has a few random "synapses" or "connections" created from the sensors to the neutrals, then from the neutrals to the actions.
 - Each "synapse" is given a random "weight" or "strength."
 - Each "creature" is rewarded by being able to "re-spawn and replicate" when it hits the northern border.
 - "Replication" means that it gets the same "synapses" as the parent, with a tiny "weight" mutation in a random direction.
 
 Because everything is random, sometimes nothing eventful happens. Refresh this page for a new random set of "creatures."
 
-When we play the scenario, we hope at least one of the "creatures" starts moving north. As long as it reaches north, you'll see it replicate over and over, seeing the new "creatures" get faster and faster. Some of them actually mutate to be slower, but they quickly get out-paced by the ones that mutated in <em>the direction of the reward.</em>
+When we play the scenario, we hope at least one of the "creatures" starts moving north. As long as it reaches north, you'll see it replicate over and over. Each replicate is a copy of its parent, with a tiny random mutation. As a result, some of them actually mutate to be slower (or move away from the "replica zone"), but these will quickly get out-paced by the ones that mutated in <em>the direction of the reward.</em>
 
-Very strangely, this will be the case for any given goal whose reward is replication. Assuming one of "creatures" can make it to the goal once, you are certain to see a herd of successful "creatures" within just a few generations.
+Very strangely, this will be the case for any given goal whose reward is replication. Assuming one of "creatures" can make it to the goal *once*, you are certain to see a herd of successful "creatures" within just a few generations.
 
 For example, imagine the case where the north/south borders meant "death" and the east/west meant "replication". Only the "creatures" that move in the east/west directions would thrive, and any mutations that include north/south would not make it (even if they were part of the "successful" line).
 
-The source code is embedded on this page. Have a look in the developer console for more! 👻
+Interesting. I guess I'll continue on with my "random", "last-minute" projects. The source code is fairly approachable and embedded on this page; have a look in the developer console for more! 👻
 
 <!--
 - starting location doesn't matter so much
@@ -52,9 +53,6 @@ The source code is embedded on this page. Have a look in the developer console f
 - no goal, only longevity/replication
 - mutation
 - Sensors are zeroed between generations
-
-
-
 -->
 
 <script type="text/javascript">
