@@ -6,7 +6,7 @@
   {% capture slug %}{{ page.categories | first }}{% endcapture %}
   {% for principle in site.principles %}
     {% if principle.slug == slug %}
-      {% assign title = principle.title %}
+      {% capture title %}{{ site.name }} &nbsp;|&nbsp; {{ principle.title }}{% endcapture %}
       {% assign url = principle.url %}
       {% break %}
     {% endif %}
