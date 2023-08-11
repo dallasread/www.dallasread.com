@@ -1,7 +1,7 @@
 ---
 layout: post
 title: The surprising effects of "random mutation"
-description: Random mutation is the key to resilience and opening pathways with exponential benefits.
+description: Random mutation is the key to resilience and it opens pathways that have exponential benefits that last over time.
 categories: progress
 ---
 
