@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Money on the buy
+title: Invest in things you control
 description: Whether you...
 categories: progress
 ---
