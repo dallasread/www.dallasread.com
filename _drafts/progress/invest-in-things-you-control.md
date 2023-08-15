@@ -5,4 +5,4 @@ description: Whether you...
 categories: progress
 ---
 
-Blah.
+Money is in the bricks.
