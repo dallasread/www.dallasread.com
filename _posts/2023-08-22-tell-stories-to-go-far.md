@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Learn the art of story-telling
+title: Tell stories to go far
 description: Every once in a while, you'll be given the opportunity to tell a story that will change your trajectory.
 categories: think-different
 ---
