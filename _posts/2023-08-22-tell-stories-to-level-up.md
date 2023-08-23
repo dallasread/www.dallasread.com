@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Tell stories to level up
-description: Every once in a while, you'll be given the opportunity to tell a story that will change your trajectory.
+description: Every once in a while, you'll be given the opportunity to tell a story that can change your trajectory.
 categories: think-different
 ---
 
