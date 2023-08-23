@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Tell stories to go far
+title: Tell stories to level up
 description: Every once in a while, you'll be given the opportunity to tell a story that will change your trajectory.
 categories: think-different
 ---
