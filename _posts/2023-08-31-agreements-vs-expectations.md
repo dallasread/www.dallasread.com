@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Avoid confusion by creating agreements
-description: Regret, distrust, and failure in relationships and projects stems from miscommunication and misaligned expectations.
+description: Regret, distrust, and failure in relationships and projects stem from miscommunication and misaligned expectations.
 categories: agreements
 ---
 
