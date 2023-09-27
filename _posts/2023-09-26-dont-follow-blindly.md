@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Don't follow blindly
-description: We need 
+description: What is popular is not always right; what is right is not always popular.
 categories: decentralize
 ---
 
