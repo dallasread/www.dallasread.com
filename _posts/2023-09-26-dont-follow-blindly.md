@@ -9,8 +9,8 @@ Humans are quick to find a pattern to mimic. We're quick to find a leader to fol
 
 I think this may be an immutable characteristic for some. But not for *you*.
 
-If something falls into your lap, it doesn't mean that is *the answer*. Look at it; scrutinize it; and test it.
+If someone tells you something, question it. If something falls into your lap, don't assume it as *the answer* from the heavens. Look at it; measure it; contemplate it's side-effects; scrutinize it's source; and test it against the world around you.
 
-If we all make the best decisions with the best available knowledge, we'll make the world a better place. Most often, the "best" decision is different for each of us.
+If we all make the best decisions with the best available knowledge, the world will become a better place. Most often, the "best" decision is different for each of us.
 
 Obedience is not a virtue.
