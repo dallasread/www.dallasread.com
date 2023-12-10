@@ -1,8 +1,8 @@
 ---
 layout: post
-title: The worst words in the English language
+title: The words I've grown to hate the most
 description: Whether you...
 categories: decentralize
 ---
 
-Safety & fair.
+Safe & fair.
