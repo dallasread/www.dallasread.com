@@ -2,9 +2,9 @@
 layout: principle
 date: 2000-01-01 00:00:00
 slug: progress
-title: Progress is everything
+title: Strive for progress
 pre-title: 0.
-description: Humans are wired to thrive when they progress, achieve, and evolve. Getting things done brings fulfillment, happiness, and strength.
+description: Life cannot survive without progress. Make things happen to bring fulfillment, happiness, and strength.
 notes: >
   Getting things done.
   I work on Product Development & Delivery.
